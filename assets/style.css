@@ -1,0 +1,164 @@
+/* Reset everything */
+* {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+/* Apply styles */
+html,body {
+    min-height: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: Arial;
+    font-size: 14px;
+    background-color: white;
+    background-image: url("background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#page_header {
+    /* background-color: gray; */
+    width: 100%;
+}
+
+    #page_header_content {
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 1300px;
+        display: inline-block;
+        line-height: 70px;
+        font-size: 36px;
+    }
+
+        #page_header_content img {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+.page_content {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 1300px;
+    height: 100%;
+    display: block;
+}
+
+    .error_message {
+        background-color: aliceblue;
+        color: red;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .content_header {
+        display: block;
+        background-color: rgba(35, 125, 255, 0.9);
+        margin-top: 10px;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .content_column {
+        display: inline-block;
+        /* background-color: rgb(30, 210, 75);  */
+        vertical-align: top; 
+        text-align: center;
+        min-width: 400px;
+        margin: 10px;
+    }
+
+    /* .last_column {
+        min-width: 200px;
+    } */
+
+        .content_column_header {
+            background-color: rgba(35, 125, 255, 0.9);
+            line-height:30px;
+            /* border: 1px solid red; */
+            border-radius: 15px 15px 0px 0px;
+        }
+        
+        .content_column_footer {
+            background-color: rgba(35, 125, 255, 0.9);
+            line-height:15px;
+            /* border: 1px solid red; */
+            border-radius: 0px 0px 15px 15px;
+            margin-bottom: 10px;
+        }
+
+
+        .content_column_data {
+            background-color:rgba(255, 255, 255, 0.6);
+        }
+
+            .content_column_data table{
+                /* border: 1px solid black; */
+                width: 100%;
+                border-radius: 0px 0px 15px 15px;
+                /* background-color: chocolate; */
+                /* margin-left: auto;
+                margin-right: auto; */
+            }
+
+                .content_column_data table tr th {
+                    font-size:14px;
+                    line-height: 24px;
+                }
+
+                .content_column_data table tr td {
+                    vertical-align: middle;
+                }
+
+                .table_round {
+                    border-radius: 9px;
+                    border: 1px solid black;
+                    width:18px;
+                    height: 18px;
+                    line-height: 18px;
+                    background-color: rgba(35, 125, 255, 0.4);
+                    margin-left:5px;
+                }
+
+
+                .content_column_data table tr:nth-child(even) {
+                    background-color: rgba(35, 125, 255, 0.4);
+                }
+
+                /* .content_column_data table tr:last-child {
+                    background-color: inherit;
+                    background-color: yellow;
+                    line-height: 10px;
+                } */
+
+            .content_column_data img {
+                width: 61px;
+                margin: 2px;
+                vertical-align: middle;
+            }
+
+        /* .content_column_add {
+            background-color: rgb(185, 125, 34);
+            margin-bottom: 10px;
+        }
+
+        .content_column_list {
+            background-color: darksalmon;
+        }
+
+            .content_column_list div {
+                background-color: rgb(233, 122, 215);
+            } */
+
+
+
+
+#page_footer {
+    /* margin-top: auto; */
+    width:100%;
+    font-size: 10px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.2);
+}

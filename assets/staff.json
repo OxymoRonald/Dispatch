@@ -1,0 +1,159 @@
+{ 
+    "staff":[
+        {
+            "name":"Neil Down",
+            "callsign": 1, 
+            "department":"ems"
+        },
+        {
+            "name":"Bunny O'connor",
+            "callsign": 2, 
+            "department":"ems"
+        },
+        {
+            "name":"Emma Thomas",
+            "callsign": 3, 
+            "department":"ems"
+        },
+        {
+            "name":"Giggle Gooberson",
+            "callsign": 8, 
+            "department":"ems"
+        },
+        {
+            "name":"Austin Olander",
+            "callsign": 9, 
+            "department":"ems"
+        },
+        {
+            "name":"Okami Scarlet",
+            "callsign": 10, 
+            "department":"ems"
+        },
+        {
+            "name":"Clint Taurus",
+            "callsign": 11, 
+            "department":"ems"
+        },
+        {
+            "name":"Shaw Macdonald",
+            "callsign": 17, 
+            "department":"ems"
+        },
+        {
+            "name":"Dutch Courage",
+            "callsign": 18, 
+            "department":"ems"
+        },
+        {
+            "name":"Paul Selena Monroe",
+            "callsign": 19, 
+            "department":"ems"
+        },
+        {
+            "name":"Maya Monroe",
+            "callsign": 22, 
+            "department":"ems"
+        },
+        {
+            "name":"Chris Wyatt",
+            "callsign": 30, 
+            "department":"ems"
+        },
+        {
+            "name":"Freya Glace",
+            "callsign": 31, 
+            "department":"ems"
+        },
+        {
+            "name":"Tray Jackson",
+            "callsign": 32, 
+            "department":"ems"
+        },
+        {
+            "name":"Mukulu Umba",
+            "callsign": 33, 
+            "department":"ems"
+        },
+        {
+            "name":"Jutty Graffanino",
+            "callsign": 34, 
+            "department":"ems"
+        },
+        {
+            "name":"Gabe Logan",
+            "callsign": 35, 
+            "department":"ems"
+        },
+        {
+            "name":"Jordan Cross",
+            "callsign": 36, 
+            "department":"ems"
+        },
+        {
+            "name":"Steven Bean",
+            "callsign": 37, 
+            "department":"ems"
+        },
+        {
+            "name":"Kaito Arasaka",
+            "callsign": 38, 
+            "department":"ems"
+        },
+        {
+            "name":"Jordan Ried",
+            "callsign": 39, 
+            "department":"ems"
+        },
+        {
+            "name":"Hat Dancin",
+            "callsign": 40, 
+            "department":"ems"
+        },
+        {
+            "name":"Mark Reid",
+            "callsign": 49, 
+            "department":"ems"
+        },
+        {
+            "name":"Sky Brave",
+            "callsign": 50, 
+            "department":"ems"
+        },
+        {
+            "name":"Brodie Gomez",
+            "callsign": 51, 
+            "department":"ems"
+        },
+        {
+            "name":"Riat Zilla",
+            "callsign": 52, 
+            "department":"ems"
+        },
+        {
+            "name":"Jesse Chains",
+            "callsign": 53, 
+            "department":"ems"
+        },
+        {
+            "name":"Alex Ortiz",
+            "callsign": 54, 
+            "department":"ems"
+        },
+        {
+            "name":"jenny Campbell",
+            "callsign": 55, 
+            "department":"ems"
+        },
+        {
+            "name":"Tony Goobis",
+            "callsign":62, 
+            "department":"ems"
+        },
+        {
+            "name":"LEO 1", 
+            "callsign":514, 
+            "department":"pd"
+        }  
+    ]
+}
