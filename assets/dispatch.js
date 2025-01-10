@@ -204,7 +204,7 @@ function updatePage(){
             ems_staff_table_47 += "<tr>";
             ems_staff_table_47 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
             ems_staff_table_47 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
-            ems_staff_table_47 += "<td>" + time_in_queue + "</td>";
+            ems_staff_table_47 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_47 += "<td>";
             ems_staff_table_47 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + staff + ", 6)'/>";
             ems_staff_table_47 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + staff + ", 7)'/>";
