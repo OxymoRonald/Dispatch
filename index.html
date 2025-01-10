@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- python -m http.server -->
+    <title>Dispatch management</title>
+    <script type="text/javascript" src="assets/jquery-3.7.1.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body onload="main()">
+
+    <div id="page_header">
+        <div id="page_header_content">
+            <img src="assets/lsms_logo.png" />
+            Dispatch
+            <img src="assets/lspd_logo.png" />
+        </div>
+    </div>
+
+    <div class="page_content">
+        <div class="content_header">EMS Dispatch</div>
+        <!-- CURRENTLY ON CALL -->
+        <div class="content_column">
+            
+            <div class="content_column_header">ON CALL</div>
+            
+            <div class="content_column_data" id="ems_47">Please enable JavaScript</div>
+
+            <div class="content_column_footer">&nbsp;</div>
+
+        </div>
+        <!-- WAITING FOR CALL -->
+        <div class="content_column">
+
+            <div class="content_column_header">READY (10-8) </div>
+
+            <div class="content_column_data" id="ems_8">Please enable JavaScript</div>
+
+            <div class="content_column_footer">&nbsp;</div>
+            
+            <div class="content_column_header">BUSY (10-6) </div>
+
+            <div class="content_column_data" id="ems_6">Please enable JavaScript</div>
+
+            <div class="content_column_footer">&nbsp;</div>
+            
+            <div class="content_column_header">ON BREAK (10-7) </div>
+
+            <div class="content_column_data" id="ems_7">Please enable JavaScript</div>
+
+            <div class="content_column_footer">&nbsp;</div>
+
+        </div>
+        <!-- OFF DUTY -->
+        <div class="content_column last_column">
+
+            <div class="content_column_header">OFF DUTY (42)</div>
+
+            <div class="content_column_data" id="ems_42">Please enable JavaScript</div>
+            
+            <div class="content_column_footer">&nbsp;</div>
+
+        </div>
+    </div>
+
+    <div id="page_footer">Designed by OxymoRonald</div>
+
+</body>
+
+<script type="text/javascript" src="assets/dispatch.js"></script>
+</html>
