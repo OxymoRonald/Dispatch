@@ -115,7 +115,7 @@ html,body {
                 .table_round {
                     border-radius: 9px;
                     border: 1px solid black;
-                    width:18px;
+                    min-width:18px;
                     height: 18px;
                     line-height: 18px;
                     background-color: rgba(35, 125, 255, 0.4);
