@@ -113,13 +113,16 @@ html,body {
                 }
 
                 .table_round {
-                    border-radius: 9px;
+                    border-radius: 10px;
                     border: 1px solid black;
-                    min-width:18px;
+                    min-width:10px;
                     height: 18px;
                     line-height: 18px;
                     background-color: rgba(35, 125, 255, 0.4);
-                    margin-left:5px;
+                    margin-left:4px;
+                    margin-right:4px;
+                    padding-right:3px;
+                    padding-left:2px;
                 }
 
 
