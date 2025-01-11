@@ -222,4 +222,4 @@ function updatePage(){
 // Update page sections every 30 seconds
 setInterval(function(){ 
     updatePage(); 
-}, 10000);
+}, 30000);
