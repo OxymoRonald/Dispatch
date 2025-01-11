@@ -72,14 +72,19 @@ function updateDispatch(id, status){
     ems_staff[id]['status'] = status
 
     // Update timestamp for staff member
-    ems_staff[id]['timestamp'] = Date.now()
+    if(status == 42){
+        ems_staff[id]['timestamp'] = 0
+    }
+    else{
+        ems_staff[id]['timestamp'] = Date.now()
+    }
 
     // Sort by timestamp, then callsign
     ems_staff.sort((a,b) => a.timestamp - b.timestamp || a.callsign - b.callsign);
     // data.sort((a, b) => a.city.localeCompare(b.city) || b.price - a.price); (localecompare is for strings)
 
-    console.log("Updated status")
-    console.log(ems_staff[id])
+    // console.log("Updated status")
+    // console.log(ems_staff[id])
 
     updatePage();
 
@@ -130,10 +135,10 @@ function updatePage(){
     
     var ems_staff_table_47 = "<table>";
     ems_staff_table_47 += "<tr>";
+    ems_staff_table_47 += "<th style='width:65px;'>&nbsp;</th>";
     ems_staff_table_47 += "<th style='width:30px;'>&nbsp;</th>";
     ems_staff_table_47 += "<th style='text-align:left;'>Name</th>";
     ems_staff_table_47 += "<th style='width:40px;'>Time</th>";
-    ems_staff_table_47 += "<th style='width:65px;'>&nbsp;</th>";
     ems_staff_table_47 += "<th style='width:65px;'>&nbsp;</th>";
     ems_staff_table_47 += "</tr>";
 
@@ -202,14 +207,14 @@ function updatePage(){
         else if(ems_staff[staff]['status'] == 47){
             // status 10-8
             ems_staff_table_47 += "<tr>";
-            ems_staff_table_47 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_47 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
-            ems_staff_table_47 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_47 += "<td>";
             ems_staff_table_47 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + staff + ", 6)'/>";
             ems_staff_table_47 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + staff + ", 7)'/>";
             ems_staff_table_47 += "<img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + staff + ", 42)'/>";
             ems_staff_table_47 += "</td>";
+            ems_staff_table_47 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
+            ems_staff_table_47 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
+            ems_staff_table_47 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_47 += "<td>";
             ems_staff_table_47 += "<img src='assets/10-8.png' alt='10-8' onclick='updateDispatch(" + staff + ", 8)'/>";
             ems_staff_table_47 += "</td>";
@@ -241,4 +246,4 @@ function updatePage(){
 // Update page sections every 30 seconds
 setInterval(function(){ 
     updatePage(); 
-}, 60000);
+}, 10000);
