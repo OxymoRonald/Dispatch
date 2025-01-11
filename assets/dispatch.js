@@ -11,7 +11,7 @@ function main(){
     // Load json from external file
     $.getJSON(json_file, function(jsonData){
 
-        for(staff_member of jsonData['staff']){
+        for(const [index, staff_member] of jsonData.staff.entries()){
 
             // Set status and timestamp
             staff_member.status = 42;
@@ -30,7 +30,7 @@ function main(){
                 console.log('Unknown department');
                 console.log(staff_member);
             }
-
+            
         }
 
         // Order staff lists by callsign
@@ -72,7 +72,6 @@ function updateDispatch(id, status){
 
 // Update page sections
 function updatePage(){
-    // alert("UPDATE");
     time_now = Date.now();
 
     // Define and initialize tables
@@ -125,78 +124,78 @@ function updatePage(){
 
 
     // Update tables (Not ES6 cause I'm lazy)
-    for(staff in ems_staff){
+    for( const[index, staff_member] of ems_staff.entries()){
         // Calculate time 
-        time_in_queue = Math.round((time_now - ems_staff[staff]['timestamp']) / 1000 / 60)
+        time_in_queue = Math.round((time_now - staff_member.timestamp) / 1000 / 60)
 
         // Process based on status
-        if(ems_staff[staff]['status'] == 42){
-            // Add row to table
+        // Status 10-42
+        if(staff_member.status == 42){
             ems_staff_table_42 += "<tr>"
-            ems_staff_table_42 += "<td><img src='assets/10-41.png' alt='10-42' onclick='updateDispatch(" + staff + ", 8)'/></td>"
-            ems_staff_table_42 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_42 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>"
+            ems_staff_table_42 += "<td><img src='assets/10-41.png' alt='10-42' onclick='updateDispatch(" + index + ", 8)'/></td>"
+            ems_staff_table_42 += "<td><div class='table_round'>"+ staff_member.callsign +"</div></td>";
+            ems_staff_table_42 += "<td style='text-align:left;'>"+ staff_member.name +"</td>"
             ems_staff_table_42 += "</tr>"
         }
-
-        else if(ems_staff[staff]['status'] == 8){
-            // status 10-8
+        
+        // status 10-8
+        else if(staff_member.status == 8){
             ems_staff_table_8 += "<tr>";
-            ems_staff_table_8 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + staff + ", 47)'/></td>";
-            ems_staff_table_8 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_8 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
+            ems_staff_table_8 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + index + ", 47)'/></td>";
+            ems_staff_table_8 += "<td><div class='table_round'>"+ staff_member.callsign +"</div></td>";
+            ems_staff_table_8 += "<td style='text-align:left;'>"+ staff_member.name +"</td>";
             ems_staff_table_8 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_8 += "<td>";
-            ems_staff_table_8 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + staff + ", 6)'/>";
-            ems_staff_table_8 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + staff + ", 7)'/>";
+            ems_staff_table_8 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + index + ", 6)'/>";
+            ems_staff_table_8 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + index + ", 7)'/>";
             ems_staff_table_8 += "</td>";
-            ems_staff_table_8 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + staff + ", 42)'/></td>";
+            ems_staff_table_8 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + index + ", 42)'/></td>";
             ems_staff_table_8 += "</tr>";
         }
 
-        else if(ems_staff[staff]['status'] == 6){
-            // status 10-8
+        // status 10-6
+        else if(staff_member.status == 6){
             ems_staff_table_6 += "<tr>"
-            ems_staff_table_6 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + staff + ", 47)'/></td>";
-            ems_staff_table_6 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_6 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
+            ems_staff_table_6 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + index + ", 47)'/></td>";
+            ems_staff_table_6 += "<td><div class='table_round'>"+ staff_member.callsign +"</div></td>";
+            ems_staff_table_6 += "<td style='text-align:left;'>"+ staff_member.name +"</td>";
             ems_staff_table_6 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_6 += "<td>";
-            ems_staff_table_6 += "<img src='assets/10-8.png' alt='10-6' onclick='updateDispatch(" + staff + ", 8)'/>";
-            ems_staff_table_6 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + staff + ", 7)'/>";
+            ems_staff_table_6 += "<img src='assets/10-8.png' alt='10-6' onclick='updateDispatch(" + index + ", 8)'/>";
+            ems_staff_table_6 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + index + ", 7)'/>";
             ems_staff_table_6 += "</td>";
-            ems_staff_table_6 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + staff + ", 42)'/></td>";
+            ems_staff_table_6 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + index + ", 42)'/></td>";
             ems_staff_table_6 += "</tr>";
         }
 
-        else if(ems_staff[staff]['status'] == 7){
-            // status 10-8
+        // status 10-7
+        else if(staff_member.status == 7){
             ems_staff_table_7 += "<tr>";
-            ems_staff_table_7 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + staff + ", 47)'/></td>";
-            ems_staff_table_7 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_7 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
+            ems_staff_table_7 += "<td><img src='assets/10-47.png' alt='10-47' onclick='updateDispatch(" + index + ", 47)'/></td>";
+            ems_staff_table_7 += "<td><div class='table_round'>"+ staff_member.callsign +"</div></td>";
+            ems_staff_table_7 += "<td style='text-align:left;'>"+ staff_member.name +"</td>";
             ems_staff_table_7 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_7 += "<td>";
-            ems_staff_table_7 += "<img src='assets/10-8.png' alt='10-6' onclick='updateDispatch(" + staff + ", 8)'/>";
-            ems_staff_table_7 += "<img src='assets/10-6.png' alt='10-7' onclick='updateDispatch(" + staff + ", 6)'/>";
+            ems_staff_table_7 += "<img src='assets/10-8.png' alt='10-6' onclick='updateDispatch(" + index + ", 8)'/>";
+            ems_staff_table_7 += "<img src='assets/10-6.png' alt='10-7' onclick='updateDispatch(" + index + ", 6)'/>";
             ems_staff_table_7 += "</td>";
-            ems_staff_table_7 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + staff + ", 42)'/></td>";
+            ems_staff_table_7 += "<td><img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + index + ", 42)'/></td>";
             ems_staff_table_7 += "</tr>";
         }
 
-        else if(ems_staff[staff]['status'] == 47){
-            // status 10-8
+        // status 10-47 (On Call)
+        else if(staff_member.status == 47){
             ems_staff_table_47 += "<tr>";
             ems_staff_table_47 += "<td>";
-            ems_staff_table_47 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + staff + ", 6)'/>";
-            ems_staff_table_47 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + staff + ", 7)'/>";
-            ems_staff_table_47 += "<img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + staff + ", 42)'/>";
+            ems_staff_table_47 += "<img src='assets/10-6.png' alt='10-6' onclick='updateDispatch(" + index + ", 6)'/>";
+            ems_staff_table_47 += "<img src='assets/10-7.png' alt='10-7' onclick='updateDispatch(" + index + ", 7)'/>";
+            ems_staff_table_47 += "<img src='assets/10-42.png' alt='10-42' onclick='updateDispatch(" + index + ", 42)'/>";
             ems_staff_table_47 += "</td>";
-            ems_staff_table_47 += "<td><div class='table_round'>"+ ems_staff[staff]['callsign'] +"</div></td>";
-            ems_staff_table_47 += "<td style='text-align:left;'>"+ ems_staff[staff]['name'] +"</td>";
+            ems_staff_table_47 += "<td><div class='table_round'>"+ staff_member.callsign +"</div></td>";
+            ems_staff_table_47 += "<td style='text-align:left;'>"+ staff_member.name +"</td>";
             ems_staff_table_47 += "<td>" + time_in_queue + "m</td>";
             ems_staff_table_47 += "<td>";
-            ems_staff_table_47 += "<img src='assets/10-8.png' alt='10-8' onclick='updateDispatch(" + staff + ", 8)'/>";
+            ems_staff_table_47 += "<img src='assets/10-8.png' alt='10-8' onclick='updateDispatch(" + index + ", 8)'/>";
             ems_staff_table_47 += "</td>";
             ems_staff_table_47 += "</tr>";
         }
