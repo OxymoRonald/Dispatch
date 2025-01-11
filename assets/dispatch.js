@@ -2,41 +2,33 @@
 let json_file = "assets/staff.json";
 
 // Staff lists
-var ems_staff = []
-var pd_staff = []
+var ems_staff = [];
+var pd_staff = [];
 
 // Load initial page (everybody off duty)
 function main(){
 
     // Load json from external file
     $.getJSON(json_file, function(jsonData){
-        // Dump data to console
-        // console.log('Raw JSON data');
-        // console.log(jsonData);
 
-        // Process all staff
-        for(staff in jsonData['staff']){
-            // console.log('User data');
-            // console.log(jsonData['staff'][staff]);
+        for(staff_member of jsonData['staff']){
 
-            // Add status
-            jsonData['staff'][staff]['status'] = 42
-
-            // Add timestamp
-            jsonData['staff'][staff]['timestamp'] = 0
+            // Set status and timestamp
+            staff_member.status = 42;
+            staff_member.timestamp = 0;
 
             // If EMS
-            if(jsonData['staff'][staff]['department'] == 'ems'){
-                ems_staff.push(jsonData['staff'][staff])
+            if(staff_member.department == 'ems'){
+                ems_staff.push(staff_member);
             }
             // Else if PD
-            else if(jsonData['staff'][staff]['department'] == 'pd'){
-                pd_staff.push(jsonData['staff'][staff])
+            else if(staff_member.department == 'pd'){
+                pd_staff.push(staff_member);
             }
             // Else print message to console
             else{
                 console.log('Unknown department');
-                console.log(jsonData['staff'][staff])
+                console.log(staff_member);
             }
 
         }
@@ -45,12 +37,7 @@ function main(){
         ems_staff.sort((a,b) => a.callsign - b.callsign);
         pd_staff.sort((a,b) => a.callsign - b.callsign);
 
-        // Dump to console
-        // console.log('EMS staff');
-        // console.log(ems_staff);
-        // console.log('PD staff');
-        // console.log(pd_staff);
-
+        // Load page
         updatePage();
 
     // If loading the JSON fails
@@ -63,29 +50,22 @@ function main(){
 
 // On update (button push)
 function updateDispatch(id, status){
-    // alert("New status for: " + id + " is: " + status);
-
-    // console.log("Staff to edit")
-    // console.log(ems_staff[id])
 
     // Update status for staff member
-    ems_staff[id]['status'] = status
+    ems_staff[id]['status'] = status;
 
     // Update timestamp for staff member
     if(status == 42){
-        ems_staff[id]['timestamp'] = 0
+        ems_staff[id]['timestamp'] = 0;
     }
     else{
-        ems_staff[id]['timestamp'] = Date.now()
+        ems_staff[id]['timestamp'] = Date.now();
     }
 
     // Sort by timestamp, then callsign
     ems_staff.sort((a,b) => a.timestamp - b.timestamp || a.callsign - b.callsign);
-    // data.sort((a, b) => a.city.localeCompare(b.city) || b.price - a.price); (localecompare is for strings)
 
-    // console.log("Updated status")
-    // console.log(ems_staff[id])
-
+    // Update page
     updatePage();
 
 }
@@ -93,7 +73,7 @@ function updateDispatch(id, status){
 // Update page sections
 function updatePage(){
     // alert("UPDATE");
-    time_now = Date.now()
+    time_now = Date.now();
 
     // Define and initialize tables
     var ems_staff_table_42 = "<table>";
@@ -144,7 +124,7 @@ function updatePage(){
 
 
 
-    // Update tables
+    // Update tables (Not ES6 cause I'm lazy)
     for(staff in ems_staff){
         // Calculate time 
         time_in_queue = Math.round((time_now - ems_staff[staff]['timestamp']) / 1000 / 60)
@@ -222,10 +202,6 @@ function updatePage(){
         }
 
     }
-
-    // console.log("EMS status")
-    // console.log(ems_staff)
-
 
     // Close tables
     ems_staff_table_42 += "</table>"
