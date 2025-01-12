@@ -66,11 +66,6 @@
             "department":"ems"
         },
         {
-            "name":"Tray Jackson",
-            "callsign": 32, 
-            "department":"ems"
-        },
-        {
             "name":"Mukulu Umba",
             "callsign": 33, 
             "department":"ems"
@@ -148,6 +143,11 @@
         {
             "name":"Tony Goobis",
             "callsign":62, 
+            "department":"ems"
+        },
+        {
+            "name":"Calypso Izkander",
+            "callsign":30, 
             "department":"ems"
         },
         {
